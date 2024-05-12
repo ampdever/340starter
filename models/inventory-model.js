@@ -8,6 +8,13 @@ async function getClassifications(){
 }
 
 /* ***************************
+ *  Get one item 
+ * ************************** */
+async function getSpecificItem(){
+  return await pool.query("SELECT inv_make, inv_model FROM public.inventory")
+}
+
+/* ***************************
  *  Get all inventory items and classification_name by classification_id
  * ************************** */
 async function getInventoryByClassificationId(classification_id) {
@@ -22,6 +29,21 @@ async function getInventoryByClassificationId(classification_id) {
     return data.rows
   } catch (error) {
     console.error("getclassificationsbyid error " + error)
+  }
+}
+
+/* ***************************
+ *  Get specific item
+ * ************************** */
+async function getSpecificItem (item_make, item_model) {
+  try {
+    const data = await pool.query(
+      `SELECT inv_make, inv_model FROM public.inventory
+      WHERE inv_make = $1 AND inv_model = $2`, [item_make], [item_model]
+    )
+    return data.rows[0]
+  } catch (error) {
+      console.error("getSpecificItem error " + error)
   }
 }
 
