@@ -35,11 +35,11 @@ async function getInventoryByClassificationId(classification_id) {
 /* ***************************
  *  Get specific item
  * ************************** */
-async function getSpecificItem (item_make, item_model) {
+async function getSpecificItem (invID) {
   try {
     const data = await pool.query(
-      `SELECT inv_make, inv_model FROM public.inventory
-      WHERE inv_make = $1 AND inv_model = $2`, [item_make], [item_model]
+      `SELECT * FROM public.inventory
+      WHERE inv_id = $1`, [invID]
     )
     return data.rows[0]
   } catch (error) {
@@ -48,4 +48,4 @@ async function getSpecificItem (item_make, item_model) {
 }
 
 
-module.exports = {getClassifications, getInventoryByClassificationId};
+module.exports = {getClassifications, getInventoryByClassificationId, getSpecificItem};
