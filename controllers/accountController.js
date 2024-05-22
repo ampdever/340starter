@@ -5,7 +5,7 @@ const utilities = require("../utilities/")
 * *************************************** */
 async function buildLogin(req, res, next) {
     let nav = await utilities.getNav()
-    console.log("insite account controller")
+    //console.log("insite account controller")
     res.render("account/login", {
       title: "Login",
       nav,

@@ -24,7 +24,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
  * ************************** */
 invCont.buildBySpecificItem = async function (req, res, next) {
   const invID = req.params.invID
-  console.log(invID)
+  //console.log(invID)
   const data = await invModel.getSpecificItem(invID)
   console.log(data)
   const grid = await utilities.buildVehicleDetail(data)

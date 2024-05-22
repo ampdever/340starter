@@ -183,4 +183,18 @@ footer {
   .upgrades, .reviews {
     width: 45%;
   }
+
+
+  
+}
+
+/* VEHICLE DETAIL PAGE */
+
+.carInfo img {
+  padding: 10px;
+}
+
+.carDetails {
+  font-size: 1.3rem;
+  padding: 10px;
 }

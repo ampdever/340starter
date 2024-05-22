@@ -15,7 +15,7 @@ const inventoryRoute = require("./routes/inventoryRoute")
 const Util = require('./utilities/')
 const session = require("express-session")
 const pool = require('./database/')
-const accountRoute = require("./routes/accountRoute")
+// const accountRoute = require("./routes/accountRoute")
 
 /* ***********************
  * Middleware
@@ -61,7 +61,7 @@ app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
 // Account routes
-app.use("/account", accountRoute)
+app.use("/account", require("./routes/accountRoute"))
 
 /* ***********************
 * Express Error Handler
